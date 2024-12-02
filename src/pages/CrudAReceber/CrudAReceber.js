@@ -20,31 +20,31 @@ const CrudAReceber = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container" id='box2'>
       <h2>CRUD - A Receber</h2>
       <p>Gerencie suas receitas cadastrando, editando e excluindo registros.</p>
       <form>
-        <input
+        <input id='description-rec'
           type="text"
           placeholder="Descrição"
           value={descricao}
           onChange={(e) => setDescricao(e.target.value)}
         />
-        <input
+        <input id='value-rec'
           type="number"
           placeholder="Valor"
           value={valor}
           onChange={(e) => setValor(e.target.value)}
         />
-        <button type="button" onClick={handleAdd}>
+        <button id='button-rec' type="button" onClick={handleAdd}>
           Adicionar
         </button>
       </form>
       <ul>
         {receitas.map((receita, index) => (
-          <li key={index}>
+          <li key={index} id='list2'>
             {receita.descricao} - R$ {receita.valor}
-            <button onClick={() => handleDelete(index)}>Excluir</button>
+            <button id='exc2' onClick={() => handleDelete(index)}>Excluir</button>
           </li>
         ))}
       </ul>

@@ -12,22 +12,22 @@ const Login = () => {
 
   return (
     <div className="container">
-      <h2>Login</h2>
-      <p>Bem-vindo! Faça login para acessar o sistema.</p>
+      <h2 id='title-log'>Login</h2>
+      <p id='top-frase'>Bem-vindo! Faça login para acessar o sistema.</p>
       <form className='formInputs'>
-        <input
+        <input id='login'
           type="text"
           placeholder="Usuário"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <input
+        <input id='senha'
           type="password"
           placeholder="Senha"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="button" onClick={handleLogin}>
+        <button id='buttonlog' type="button" onClick={handleLogin}>
           Entrar
         </button>
       </form>

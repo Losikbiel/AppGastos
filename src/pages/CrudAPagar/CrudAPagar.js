@@ -20,31 +20,31 @@ const CrudAPagar = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container" id='box'>
       <h2>CRUD - A Pagar</h2>
       <p>Gerencie suas despesas cadastrando, editando e excluindo registros.</p>
       <form>
-        <input
+        <input id='description'
           type="text"
           placeholder="Descrição"
           value={descricao}
           onChange={(e) => setDescricao(e.target.value)}
         />
-        <input
+        <input id='value'
           type="number"
           placeholder="Valor"
           value={valor}
           onChange={(e) => setValor(e.target.value)}
         />
-        <button type="button" onClick={handleAdd}>
+        <button id='buttonpag' type="button" onClick={handleAdd}>
           Adicionar
         </button>
       </form>
       <ul>
         {despesas.map((despesa, index) => (
-          <li key={index}>
+          <li key={index} id='list'>
             {despesa.descricao} - R$ {despesa.valor}
-            <button onClick={() => handleDelete(index)}>Excluir</button>
+            <button id='exc' onClick={() => handleDelete(index)}>Excluir</button>
           </li>
         ))}
       </ul>

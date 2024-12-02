@@ -27,7 +27,7 @@ const Dashboard = () => {
           <tr>
             <td>Total a Pagar</td>
             <td>
-              <input 
+              <input id='tot-a-pag'
                 type="number" 
                 value={totalAPagar} 
                 onChange={(e) => setTotalAPagar(Number(e.target.value))}
@@ -37,7 +37,7 @@ const Dashboard = () => {
           <tr>
             <td>Total a Receber</td>
             <td>
-              <input 
+              <input id='tot-a-rec'
                 type="number" 
                 value={totalAReceber} 
                 onChange={(e) => setTotalAReceber(Number(e.target.value))}
@@ -50,7 +50,7 @@ const Dashboard = () => {
           </tr>
         </tbody>
       </table>
-      <p className={statusClass}>{status}</p>
+      <p className={statusClass} id='stat'>{status}</p>
     </div>
   );
 };
