@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./Dashboard.css";
 
 const Dashboard = () => {
-  const totalAPagar = 1000;
-  const totalAReceber = 1200;
+  // Definindo os valores iniciais com useState
+  const [totalAPagar, setTotalAPagar] = useState(1500);
+  const [totalAReceber, setTotalAReceber] = useState(1200);
+  
+  // Calculo da diferença entre contas a pagar e contas a receber
   const diferenca = totalAReceber - totalAPagar;
+
+  // Determina se está no vermelho
+  const status = diferenca < 0 ? "No Vermelho" : "Em Dia";
+  const statusClass = diferenca < 0 ? "vermelho" : "em-dia";
 
   return (
     <div className="container">
@@ -19,11 +26,23 @@ const Dashboard = () => {
         <tbody>
           <tr>
             <td>Total a Pagar</td>
-            <td>{totalAPagar}</td>
+            <td>
+              <input 
+                type="number" 
+                value={totalAPagar} 
+                onChange={(e) => setTotalAPagar(Number(e.target.value))}
+              />
+            </td>
           </tr>
           <tr>
             <td>Total a Receber</td>
-            <td>{totalAReceber}</td>
+            <td>
+              <input 
+                type="number" 
+                value={totalAReceber} 
+                onChange={(e) => setTotalAReceber(Number(e.target.value))}
+              />
+            </td>
           </tr>
           <tr>
             <td>Diferença</td>
@@ -31,6 +50,7 @@ const Dashboard = () => {
           </tr>
         </tbody>
       </table>
+      <p className={statusClass}>{status}</p>
     </div>
   );
 };

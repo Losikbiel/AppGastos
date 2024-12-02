@@ -4,9 +4,19 @@ import "./CrudAPagar.css";
 const CrudAPagar = () => {
   const [descricao, setDescricao] = useState('');
   const [valor, setValor] = useState('');
+  const [despesas, setDespesas] = useState([]);
 
   const handleAdd = () => {
+    const novaDespesa = { descricao, valor: parseFloat(valor) };
+    setDespesas([...despesas, novaDespesa]);
+    setDescricao('');
+    setValor('');
     alert('Despesa adicionada!');
+  };
+
+  const handleDelete = (index) => {
+    const newDespesas = despesas.filter((_, i) => i !== index);
+    setDespesas(newDespesas);
   };
 
   return (
@@ -30,6 +40,14 @@ const CrudAPagar = () => {
           Adicionar
         </button>
       </form>
+      <ul>
+        {despesas.map((despesa, index) => (
+          <li key={index}>
+            {despesa.descricao} - R$ {despesa.valor}
+            <button onClick={() => handleDelete(index)}>Excluir</button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
